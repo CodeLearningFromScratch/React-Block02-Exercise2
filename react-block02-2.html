@@ -1,0 +1,66 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Block02-2</title>
+  <script src="https://unpkg.com/react@18/umd/react.development.js" defer crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" defer crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone@7.10.3/babel.min.js" defer crossorigin></script>
+  <style>
+    #root{
+        max-width: 170rem;
+        width: 100%;
+        height: 100vh;
+        margin: 0 auto;
+        display: grid;
+        place-content: center;
+        font-size: 1.6rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="text/babel" data-presets="react,stage-3">
+
+class App extends React.Component {
+  render() {
+    let names = ["Clifford", "Russel", "Michael", "Dennis", "Andre"];
+    let surnames = ["Smith", "Simmons", "Diamond", "Coles", "Benjamin"];
+
+    return (
+      <div>
+        {names.map((name, index) => (
+          <div key={index}>
+            <Name name={name} />
+            <> </>
+            <Surname surname={surnames[index]} />
+          </div>
+        ))}
+      </div>
+    );
+  }
+}
+
+class Name extends React.Component {
+  render() {
+    return <span>{this.props.name}</span>;
+  }
+}
+
+class Surname extends React.Component {
+  render() {
+    return <span>{this.props.surname}</span>;
+  }
+}
+
+    const root = ReactDOM.createRoot(document.getElementById("root"))
+    root.render(<App />);
+  </script>
+</body>
+
+</html>
